@@ -1,0 +1,808 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitavision</title>
+    <!--Linking Font Awesome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--Linking Swiper CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Miniver&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #faf4f5;
+    --medium-gray-color: #ccc;
+
+    /* Font sizes */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Border radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    /* Site max width */
+    --site-max-width: 1300px;
+}
+
+/* Stylings for whole sections */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img {
+    width: 100%;
+}
+
+
+.section-content{
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: var(--site-max-width);
+}
+.section-title {
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+
+/* Navbar Styling */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background: var(--primary-color);
+    padding: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-logo .logo-text {
+    color: var(--white-color); /* Fix: Now the logo text will be white */
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu .nav-item {
+    list-style: none;
+}
+
+.nav-menu .nav-link {
+    padding: 10px 18px;
+    color: var(--white-color); /* Fix: Now the nav links will be white */
+    font-size: var(--font-size-l);
+    border-radius: var(--border-radius-m);
+    transition: color 0.3s ease;
+}
+
+.nav-menu .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--secondary-color); /* Highlight effect on hover */
+}
+
+.navbar :where(#menu-close-button, #menu-open-button) {
+    display:none;
+}
+
+/* Her section styling */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background: url("{% static 'images/home.jpg' %}") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+    margin-bottom: 20px;
+}
+
+.hero-details {
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent overlay for readability */
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    max-width: 80%;
+}
+
+.hero-details .title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    font-family: "Courgette",  sans-serif;
+}
+
+.hero-details .description {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    margin-top: 10px;
+}
+
+/* About Section Styling */
+.about-section {
+    padding: 120px 0;
+    background: var(--light-pink-color);
+    margin-bottom: 50px;
+
+}
+
+.about-section .section-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-section .about-image-wrapper .about-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-circle);
+}
+
+.about-section .about-details .section-title{
+    padding: 0;
+}
+.about-section .about-details .text{
+    line-height: 30px;
+    margin: 50px 0 30px;
+    text-align: center;
+    font-size: var(--font-size-l);
+    font-family: "Playfair+Display";
+}
+
+
+
+/* Vitamin section styling */
+
+
+
+.vitamins-section {
+    color: var(--white-color);
+    padding: 50px 0 100px;
+    background: var(--dark-color);
+}
+
+
+.vitamins-section .slider-wrapper {
+    overflow: hidden;
+    margin: 0 60px 50px;
+}
+
+.vitamins-section .vitamin {
+    display: flex;
+    padding: 5px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vitamins-section .vit-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Makes the images circular */
+}
+
+.vitamins-section .name {
+    margin-bottom: 10px;
+    font-size: var(--border-radius-m);
+    color: var(--white-color);
+    font-family: "Playfair+Display";
+}
+
+.vitamins-section .vita {
+    line-height: 35px;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    font-weight:var(--font-weight-medium);
+    text-align: left;
+    
+
+}
+
+.vitamins-section .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: var(--secondary-color);
+    margin-bottom: -10px;
+}
+
+.vitamins-section .swiper-slide-button {
+    margin-top: -10px;
+    color: var(--secondary-color);
+    transition: 0.3s ease;
+}
+
+.vitamins-section .swiper-slide-button:hover {
+    color: var(--primary-color);
+}
+
+
+
+
+
+/* Checking Section Styling */
+.checking-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("{% static 'images/vitimg3.jpg' %}")no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+}
+
+.checking-details {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    max-width: 80%;
+}
+
+.checking-details .title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    font-family: "Courgette",  sans-serif;
+}
+
+.checking-details .description {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    margin-top: 10px;
+    font-family: "Playfair+Display";
+}
+
+.upload-box {
+    border: 2px dashed #ffc107;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 10px;
+}
+
+.upload-box:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.upload-text {
+    color: #ffc107;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.upload-message {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.analyze-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #28a72e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.analyze-btn:hover {
+    background: #218838;
+}
+
+
+/* Remedy section styling*/
+.remedies-section {
+    padding: 50px 0 100px;
+    background: var(--light-pink-color);
+}
+
+.remedies-section .slider-wapper {
+    overflow: hidden;
+    margin: 0 60px 50px;
+}
+
+.remedies-section .remedies {
+    display: flex;
+    padding: 35px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-size-m);
+}
+
+.remedies-section .remedies .remedy-image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-radius: var(--border-radius-circle);
+}
+
+.remedies-section .remedies .name {
+    margin-bottom: 16px;
+    font-size: var(--border-radius-m);
+
+}
+
+.remedies-section .remedies .remedy {
+    line-height: 25px;
+
+}
+
+.remedies-section .swiper-pagenation-bullet {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: var(--secondary-color);
+}
+
+.remedies-section .swiper-slide-button {
+    margin-top: -50px;
+    color:var(--secondary-color);
+    transition: 0.3s ease;
+}
+
+.remedies-section .swiper-slide-button:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive media query code for maxwidth 1024px */
+@media screen and (max-width: 1024px) {
+    .Vitamin-details ,.vitamins-list{
+        gap: 60px;
+
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item {
+        width: calc(100%/3-60px);
+    }
+}
+/* Responsive media query code for maxwidth 900px */
+@media screen and (max-width: 900px) {
+    :root {
+        --font-size-m: 1rem;
+        --font-size-l: 1.3rem;
+        --font-size-xl: 1.5rem;
+        --font-size-xxl: 1.8rem;
+    }
+
+    body.show-mobile-menu header::before {
+        content : "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar  :where(#menu-close-button,#menu-open-button) {
+        display: block; 
+        font-size: var(--font-size-l);
+    }
+    .navbar #menu-close-button {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar #menu-open-button {
+        color: var(--white-color);
+    }
+
+
+    .nav-menu {
+        display: block;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        background: var(--white-color);
+        transition: left 0.2s ease;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+    }
+    
+    .nav-menu .nav-link {
+        color: var(--dark-color);
+        display: block;
+        margin-top: 17px;
+        font-size: var(--font-size-l);
+    }
+    .about-section .about-details {
+        max-width: 100%;
+    }
+    .about-section .section-content {
+        gap: 70px;
+        flex-direction: column;
+    }
+
+    .about-section .about-image-wrapper .about-image {
+        width: 100%;
+        height: 100%;
+        max-width: 250px;
+        aspect-ratio: 1;
+    }
+    
+    .Vitamin-details .vitamins-list{
+        gap: 30px;
+
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item{
+        width: calc(100% /2 -30px);
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item .vit-image{
+        max-width: 200px;
+    }
+}
+/* Responsive media query code for maxwidth 640px */
+@media screen and  (max-width: 640px){
+    .Vitamin-details .vitamins-list {
+        gap: 60px;
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item {
+        width: 100%;
+    }
+
+    .vitamin-section .slider-wapper {
+        margin: 0 0 30px;
+    }
+
+    .vitamin-section .swiper-slide-button{
+        display: none;
+    }
+
+    .remedies-section .slider-wapper {
+        margin: 0 0 30px;
+    }
+
+    .remedies-section .swiper-slide-button{
+        display: none;
+    }
+
+
+    
+}
+     </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">  <!-- Fixed: Changed nav-menu to navbar -->
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text">Vitavision</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#vitamins" class="nav-link">Vitamins</a></li>
+                <li class="nav-item"><a href="#deficiency" class="nav-link">Deficiency Checking</a></li>
+                <li class="nav-item"><a href="#remedies" class="nav-link">Remedies</a></li>
+                
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+
+
+    <main>
+        <!--Hero Section-->
+        <section id="home" class="hero-section">
+            <div class="hero-details">
+                <h2 class="title">Unveiling Vitamin Deficiencies for a Healthier You</h2>
+                <p class="description">VitaVision helps detect vitamin deficiencies early, giving you personalized insights to improve your health. By identifying nutrient gaps, we empower you to make informed choices for a more balanced lifestyle.                 </p>
+            </div>
+        </section>
+
+        <!--About Section-->
+        <section id="about" class="about-section">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="{% static 'images/about-image2.jpg' %}" alt="About"
+                    class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text">VitaVision is a platform designed to detect vitamin deficiencies through advanced image analysis, helping users gain real-time insights into their nutritional health. By analyzing images of the eyes, nails, and skin, VitaVision identifies potential deficiencies and provides personalized dietary recommendations. Our mission is to make preventive health accessible, empowering individuals to take control of their well-being through innovative technology. With a seamless, user-friendly experience, VitaVision bridges the gap between AI and nutritional science, offering a smarter approach to health management.
+
+                    </p> 
+                
+                </div>
+            </div>
+         </section>
+        
+
+        
+
+
+
+
+
+
+
+
+          <!--Vitamins Section-->
+<section id="vitamins" class="vitamins-section">
+    <h2 class="section-title">EXPLORE VITAMINS</h2>
+    <div class="vitsection-content">
+        <div class="slider-container swiper">
+            <div class="slider-wrapper">
+                <ul class="vitamin-list swiper-wrapper">
+                    <li class="vitamin swiper-slide">
+                        <img src="{% static 'images/vita (2).jpg' %}" alt="vitamin A" class="vit-image">
+                        <h3 class="name">Vitamin A</h3>
+                        <i class="vita">Vitamin A is essential for good vision, healthy skin, and a strong immune system. It supports cell growth, reproduction, and organ function.It helps prevent night blindness and promotes clear eyesight. It also plays a role in reducing inflammation and supports healthy skin by preventing dryness and acne. Regular intake can enhance overall immunity and aid in proper fetal development during pregnancy.</i>
+                    </li>
+                    <li class="vitamin swiper-slide">
+                        <img src="{% static 'images/vitab.jpg' %}" alt="vitamin B" class="vit-image">
+                        <h3 class="name">Vitamin B</h3>
+                        <i class="vita">Vitamin B-complex supports energy production, brain function, and red blood cell formation. It includes B1 to B12, each playing a vital role in metabolism and nervous system health. Found in whole grains, eggs, dairy, meat, and leafy greens, it helps prevent fatigue and anemia. A balanced intake supports mental clarity and overall vitality. Vitamin B is also crucial for healthy digestion and helps regulate mood by supporting neurotransmitter function.</i>
+                    </li>
+                    <li class="vitamin swiper-slide">
+                        <img src="{% static 'images/vitac.jpg' %}" alt="vitamin C" class="vit-image">
+                        <h3 class="name">Vitamin C</h3>
+                        <i class="vita">Vitamin C boosts immunity, aids in collagen production, and speeds up healing. It also enhances iron absorption and protects cells from damage. Since the body doesn’t store it, daily intake from citrus fruits, bell peppers, and leafy greens is essential. It helps keep skin radiant and fights free radicals. Additionally, it reduces the risk of chronic diseases and supports healthy blood vessels</i>
+                    </li>
+                    <li class="vitamin swiper-slide">
+                        <img src="{% static 'images/vitad.jpg' %}" alt="vitamin D" class="vit-image">
+                        <h3 class="name">Vitamin D</h3>
+                        <i class="vita">Vitamin D helps absorb calcium for strong bones and supports immunity, muscles, and heart health. Sunlight is the best source, but it’s also found in dairy, fish, egg yolks, and fortified foods. Deficiency can cause weak bones and fatigue. It also plays a role in mood regulation and reducing stress. Studies suggest that adequate Vitamin D levels may lower the risk of autoimmune diseases and improve overall well-being.</i>
+                    </li>
+                    <li class="vitamin swiper-slide">
+                        <img src="{% static 'images/vitae.jpg' %}" alt="vitamin E" class="vit-image">
+                        <h3 class="name">Vitamin E</h3>
+                        <i class="vita">Vitamin E is a powerful antioxidant that protects cells, improves skin and hair health, and supports immunity. It also aids blood circulation and reduces inflammation. Found in nuts, seeds, vegetable oils, and spinach, it promotes overall well-being. Regular intake may help slow aging and improve heart health. Additionally, it protects against oxidative stress, which can contribute to chronic diseases and vision problems.</i>
+                    </li>
+                </ul>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-slide-button swiper-button-prev"></div>
+                <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        
+
+
+
+
+
+
+
+
+     <!-- Checking My Deficiency Section -->
+    <!-- Checking My Deficiency Section -->
+    <section id="deficiency" class="checking-section">
+    <div class="checking-details">
+        <h2 class="title">Check your vitamin deficiency here</h2>
+        <p class="description">
+            Upload the images of your nails, hair, tongue, or eye.
+        </p>
+
+        <!-- Drag and Drop Upload Box -->
+        <div class="upload-box" id="uploadBox">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>Upload an image here  <span class="upload-text">{{ form.as_p }}</span></p>
+                <style>
+                    .btn {
+                    background-color: #04AA6D; /* Green */
+                    border: none;
+                    color: white;
+                    padding: 16px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                    }
+                  </style>
+                    <button type="submit" class="btn btn-warning">Analyze Image</button>
+               
+                
+              
+            </form>
+        
+            {% if prediction %}
+                <h2>Predicted Vitamin Deficiency: {{ prediction }}</h2>
+            {% endif %}
+            <!-- <p>Drag & Drop an image here or <span class="upload-text">Click to Upload</span></p>
+            <input type="file" class="hidden-input" id="fileInput" accept=".jpeg, .jpg"> -->
+        </div>
+
+       
+        
+    </div>
+</section>
+        <!--Remedies Section-->
+        <section id="remedies" class="remedies-section">
+            <h2 class="section-title">Remedies</h2>
+            <div class="section-content">
+                <div class="slider-container swiper">
+                    <div class="slider-wrapper">
+                        <ul class="remedies-list swiper-wrapper">
+                            <li class="remedies swiper-slide">
+                                <img src="{% static 'images/remedya.jpg' %}" alt="vitaremedy" class="remedy-image">
+                                <h3 class="name">Vitamin A</h3>
+                                <i class="remedy">For Vitamin A, include foods like carrots, sweet potatoes, spinach, liver, eggs, and dairy products. These help maintain good vision, support skin health, and strengthen the immune system. Beta-carotene-rich vegetables are especially beneficial as the body converts them into active Vitamin A.</i>
+                            </li>
+                            <li class="remedies swiper-slide">
+                                <img src="{% static  'images/remedyb.jpg' %}" alt="vitaremedy" class="remedy-image">
+                                <h3 class="name">Vitamin B</h3>
+                                <i class="remedy">For Vitamin B, consume whole grains, eggs, dairy, meat, fish, leafy greens, nuts, and legumes. These foods support energy production, brain function, and red blood cell formation. Different B vitamins are found in various sources, so a balanced diet is key to getting the full range.</i>
+                            </li>
+                            <li class="remedies swiper-slide">
+                                <img src="{% static 'images/remedyc.jpg' %}" alt="vitaremedy" class="remedy-image">
+                                <h3 class="name">Vitamin C</h3>
+                                <i class="remedy">For Vitamin C, eat citrus fruits, bell peppers, strawberries, kiwi, and green leafy vegetables. This vitamin boosts immunity, aids in collagen production, and helps the body absorb iron. Fresh, raw fruits and vegetables provide the highest levels of Vitamin C.</i>
+                            </li>
+                            <li class="remedies swiper-slide">
+                                <img src="{% static 'images/remedyd.jpg' %}" alt="vitaremedy" class="remedy-image">
+                                <h3 class="name">Vitamin D</h3>
+                                <i class="remedy">For Vitamin D, sunlight is the best source, but you can also get it from fatty fish, egg yolks, fortified dairy, and mushrooms. It is essential for calcium absorption, bone strength, and immune function. A combination of sun exposure and dietary sources helps maintain adequate levels.</i>
+                            </li>
+                            <li class="remedies swiper-slide">
+                                <img src="{% static 'images/remedye.jpg' %}" alt="vitaremedy" class="remedy-image">
+                                <h3 class="name">Vitamin E</h3>
+                                <i class="remedy">For Vitamin E, include nuts, seeds, spinach, and vegetable oils in your diet. These foods provide powerful antioxidants that protect cells, improve skin health, and support immunity. Regular consumption helps reduce oxidative stress and supports heart health.</i>
+                            </li>
+                        </ul>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-slide-button
+                        swiper-button-prev"></div>
+                        <div class="swiper-slide-button
+                        swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!--Linking Swiper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--Linking custom script-->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        const uploadBox = document.getElementById('uploadBox');
+        const fileInput = document.getElementById('fileInput');
+        const uploadMessage = document.getElementById('uploadMessage');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+    
+        uploadBox.addEventListener('click', () => fileInput.click());
+    
+        fileInput.addEventListener('change', (event) => {
+            handleFile(event.target.files[0]);
+        });
+    
+        uploadBox.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            uploadBox.style.borderColor = "#0056b3";
+        });
+    
+        uploadBox.addEventListener('dragleave', () => {
+            uploadBox.style.borderColor = "#007bff";
+        });
+    
+        uploadBox.addEventListener('drop', (event) => {
+            event.preventDefault();
+            uploadBox.style.borderColor = "#007bff";
+            const file = event.dataTransfer.files[0];
+            handleFile(file);
+        });
+    
+        function handleFile(file) {
+            if (file && (file.type === "image/jpeg" || file.type === "image/jpg")) {
+                uploadMessage.textContent = "Image uploaded successfully!";
+                uploadMessage.style.color = "green";
+                analyzeBtn.style.display = "block"; // Show analyze button
+            } else {
+                uploadMessage.textContent = "Please upload a valid JPEG/JPG image.";
+                uploadMessage.style.color = "red";
+                analyzeBtn.style.display = "none"; // Hide analyze button if invalid
+            }
+        }
+    </script>
+</body>
+</html>

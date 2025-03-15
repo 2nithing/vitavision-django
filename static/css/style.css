@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Miniver&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Miniver&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    /* Colors */
+    --white-color: #fff;
+    --dark-color: #252525;
+    --primary-color: #3b141c;
+    --secondary-color: #f3961c;
+    --light-pink-color: #faf4f5;
+    --medium-gray-color: #ccc;
+
+    /* Font sizes */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+    --font-size-xxl: 2.3rem;
+
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Border radius */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+    --border-radius-circle: 50%;
+
+    /* Site max width */
+    --site-max-width: 1300px;
+}
+
+/* Stylings for whole sections */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+img {
+    width: 100%;
+}
+
+
+.section-content{
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: var(--site-max-width);
+}
+.section-title {
+    text-align: center;
+    padding: 60px 0 100px;
+    text-transform: uppercase;
+    font-size: var(--font-size-xl);
+}
+
+.section-title::after {
+    content: "";
+    width: 80px;
+    height: 5px;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: var(--border-radius-s);
+    background: var(--secondary-color);
+}
+
+/* Navbar Styling */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    background: var(--primary-color);
+    padding: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-logo .logo-text {
+    color: var(--white-color); /* Fix: Now the logo text will be white */
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu .nav-item {
+    list-style: none;
+}
+
+.nav-menu .nav-link {
+    padding: 10px 18px;
+    color: var(--white-color); /* Fix: Now the nav links will be white */
+    font-size: var(--font-size-l);
+    border-radius: var(--border-radius-m);
+    transition: color 0.3s ease;
+}
+
+.nav-menu .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--secondary-color); /* Highlight effect on hover */
+}
+
+.navbar :where(#menu-close-button, #menu-open-button) {
+    display:none;
+}
+
+/* Her section styling */
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background: url("{% static 'images/home.jpg' %}") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+    margin-bottom: 20px;
+}
+
+.hero-details {
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent overlay for readability */
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    max-width: 80%;
+}
+
+.hero-details .title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    font-family: "Courgette",  sans-serif;
+}
+
+.hero-details .description {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    margin-top: 10px;
+}
+
+/* About Section Styling */
+.about-section {
+    padding: 120px 0;
+    background: var(--light-pink-color);
+    margin-bottom: 50px;
+
+}
+
+.about-section .section-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about-section .about-image-wrapper .about-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--border-radius-circle);
+}
+
+.about-section .about-details .section-title{
+    padding: 0;
+}
+.about-section .about-details .text{
+    line-height: 30px;
+    margin: 50px 0 30px;
+    text-align: center;
+    font-size: var(--font-size-l);
+    font-family: "Playfair+Display";
+}
+
+
+
+/* Vitamin section styling */
+
+
+
+.vitamins-section {
+    color: var(--white-color);
+    padding: 50px 0 100px;
+    background: var(--dark-color);
+}
+
+
+.vitamins-section .slider-wrapper {
+    overflow: hidden;
+    margin: 0 60px 50px;
+}
+
+.vitamins-section .vitamin {
+    display: flex;
+    padding: 5px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vitamins-section .vit-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 50%; /* Makes the images circular */
+}
+
+.vitamins-section .name {
+    margin-bottom: 10px;
+    font-size: var(--border-radius-m);
+    color: var(--white-color);
+    font-family: "Playfair+Display";
+}
+
+.vitamins-section .vita {
+    line-height: 35px;
+    color: var(--white-color);
+    font-size: var(--font-size-m);
+    font-weight:var(--font-weight-medium);
+    text-align: left;
+    
+
+}
+
+.vitamins-section .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: var(--secondary-color);
+    margin-bottom: -10px;
+}
+
+.vitamins-section .swiper-slide-button {
+    margin-top: -10px;
+    color: var(--secondary-color);
+    transition: 0.3s ease;
+}
+
+.vitamins-section .swiper-slide-button:hover {
+    color: var(--primary-color);
+}
+
+
+
+
+
+/* Checking Section Styling */
+.checking-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("{% static 'images/vitimg3.jpg' %}")no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white-color);
+}
+
+.checking-details {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    max-width: 80%;
+}
+
+.checking-details .title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    font-family: "Courgette",  sans-serif;
+}
+
+.checking-details .description {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-medium);
+    margin-top: 10px;
+    font-family: "Playfair+Display";
+}
+
+.upload-box {
+    border: 2px dashed #ffc107;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 10px;
+}
+
+.upload-box:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.upload-text {
+    color: #ffc107;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hidden-input {
+    display: none;
+}
+
+.upload-message {
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.analyze-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #28a72e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+.analyze-btn:hover {
+    background: #218838;
+}
+
+
+/* Remedy section styling*/
+.remedies-section {
+    padding: 50px 0 100px;
+    background: var(--light-pink-color);
+}
+
+.remedies-section .slider-wapper {
+    overflow: hidden;
+    margin: 0 60px 50px;
+}
+
+.remedies-section .remedies {
+    display: flex;
+    padding: 35px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--font-size-m);
+}
+
+.remedies-section .remedies .remedy-image {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    border-radius: var(--border-radius-circle);
+}
+
+.remedies-section .remedies .name {
+    margin-bottom: 16px;
+    font-size: var(--border-radius-m);
+
+}
+
+.remedies-section .remedies .remedy {
+    line-height: 25px;
+
+}
+
+.remedies-section .swiper-pagenation-bullet {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+    background: var(--secondary-color);
+}
+
+.remedies-section .swiper-slide-button {
+    margin-top: -50px;
+    color:var(--secondary-color);
+    transition: 0.3s ease;
+}
+
+.remedies-section .swiper-slide-button:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive media query code for maxwidth 1024px */
+@media screen and (max-width: 1024px) {
+    .Vitamin-details ,.vitamins-list{
+        gap: 60px;
+
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item {
+        width: calc(100%/3-60px);
+    }
+}
+/* Responsive media query code for maxwidth 900px */
+@media screen and (max-width: 900px) {
+    :root {
+        --font-size-m: 1rem;
+        --font-size-l: 1.3rem;
+        --font-size-xl: 1.5rem;
+        --font-size-xxl: 1.8rem;
+    }
+
+    body.show-mobile-menu header::before {
+        content : "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar  :where(#menu-close-button,#menu-open-button) {
+        display: block; 
+        font-size: var(--font-size-l);
+    }
+    .navbar #menu-close-button {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+    }
+
+    .navbar #menu-open-button {
+        color: var(--white-color);
+    }
+
+
+    .nav-menu {
+        display: block;
+        position: fixed;
+        left: -300px;
+        top: 0;
+        width: 300px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        background: var(--white-color);
+        transition: left 0.2s ease;
+    }
+
+    body.show-mobile-menu .navbar .nav-menu {
+        left: 0;
+    }
+    
+    .nav-menu .nav-link {
+        color: var(--dark-color);
+        display: block;
+        margin-top: 17px;
+        font-size: var(--font-size-l);
+    }
+    .about-section .about-details {
+        max-width: 100%;
+    }
+    .about-section .section-content {
+        gap: 70px;
+        flex-direction: column;
+    }
+
+    .about-section .about-image-wrapper .about-image {
+        width: 100%;
+        height: 100%;
+        max-width: 250px;
+        aspect-ratio: 1;
+    }
+    
+    .Vitamin-details .vitamins-list{
+        gap: 30px;
+
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item{
+        width: calc(100% /2 -30px);
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item .vit-image{
+        max-width: 200px;
+    }
+}
+/* Responsive media query code for maxwidth 640px */
+@media screen and  (max-width: 640px){
+    .Vitamin-details .vitamins-list {
+        gap: 60px;
+    }
+
+    .Vitamin-details .vitamins-list .vitamin-item {
+        width: 100%;
+    }
+
+    .vitamin-section .slider-wapper {
+        margin: 0 0 30px;
+    }
+
+    .vitamin-section .swiper-slide-button{
+        display: none;
+    }
+
+    .remedies-section .slider-wapper {
+        margin: 0 0 30px;
+    }
+
+    .remedies-section .swiper-slide-button{
+        display: none;
+    }
+
+
+    
+}
