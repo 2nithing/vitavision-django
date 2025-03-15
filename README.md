@@ -1,0 +1,1 @@
+# vitavision-django
