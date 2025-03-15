@@ -1,2 +1,4 @@
 django
 tensorflow
+uvicorn
+gunicorn
