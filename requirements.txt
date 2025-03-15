@@ -2,3 +2,4 @@ django
 tensorflow
 uvicorn
 gunicorn
+pillow
