@@ -3,3 +3,6 @@ tensorflow
 uvicorn
 gunicorn
 pillow
+psycopg2-binary
+dj-database-url
+'whitenoise[brotli]'
